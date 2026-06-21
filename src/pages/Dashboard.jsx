@@ -84,6 +84,43 @@ function Dashboard() {
               </div>
             </section>
 
+            <section className="mt-6 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
+  <div className="flex items-center justify-between">
+    <div>
+      <p className="text-sm text-gray-500">Career Readiness Level</p>
+
+      <h2 className="mt-2 text-3xl font-bold">
+        Level 7 AI/ML Intern
+      </h2>
+
+      <p className="mt-2 text-gray-600">
+        You are currently internship-ready but need stronger deployment,
+        production experience, and industry exposure to reach the next level.
+      </p>
+    </div>
+
+    <div className="hidden md:block text-right">
+      <p className="text-sm text-gray-500">Current Readiness</p>
+      <h3 className="text-5xl font-bold">72%</h3>
+    </div>
+  </div>
+
+  <div className="mt-6">
+    <div className="mb-2 flex justify-between text-sm">
+      <span>Level 7</span>
+      <span>Level 8</span>
+    </div>
+
+    <div className="h-3 w-full rounded-full bg-gray-200">
+      <div className="h-3 w-[72%] rounded-full bg-black"></div>
+    </div>
+
+    <p className="mt-3 text-sm text-gray-500">
+      18% away from Junior AI Engineer level
+    </p>
+  </div>
+</section>
+
             <section className="mt-6 grid gap-6 md:grid-cols-2">
               <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
                 <div className="mb-4 flex items-center gap-2">
@@ -121,6 +158,105 @@ function Dashboard() {
                 </div>
               </div>
             </section>
+            <section className="mt-6 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
+  <h2 className="text-2xl font-bold">
+    Top 3 Improvements
+  </h2>
+
+  <p className="mt-2 text-gray-600">
+    These changes will have the highest impact on your career readiness.
+  </p>
+
+  <div className="mt-6 grid gap-4 md:grid-cols-3">
+    
+    <div className="rounded-2xl bg-gray-50 p-5">
+      <p className="text-sm text-gray-500">
+        #1 HIGH IMPACT
+      </p>
+
+      <h3 className="mt-2 text-xl font-semibold">
+        Learn Docker
+      </h3>
+
+      <p className="mt-2 text-sm text-gray-600">
+        Improve deployment knowledge and industry readiness.
+      </p>
+    </div>
+
+    <div className="rounded-2xl bg-gray-50 p-5">
+      <p className="text-sm text-gray-500">
+        #2 HIGH IMPACT
+      </p>
+
+      <h3 className="mt-2 text-xl font-semibold">
+        Deploy ElevateU
+      </h3>
+
+      <p className="mt-2 text-sm text-gray-600">
+        Showcase real-world deployment experience.
+      </p>
+    </div>
+
+    <div className="rounded-2xl bg-gray-50 p-5">
+      <p className="text-sm text-gray-500">
+        #3 MEDIUM IMPACT
+      </p>
+
+      <h3 className="mt-2 text-xl font-semibold">
+        Add Project Metrics
+      </h3>
+
+      <p className="mt-2 text-sm text-gray-600">
+        Quantify project outcomes for stronger recruiter appeal.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section className="mt-6 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
+  <h2 className="text-2xl font-bold">
+    Resume Health Check
+  </h2>
+
+  <p className="mt-2 text-gray-600">
+    A recruiter-style checklist of your resume quality.
+  </p>
+
+  <div className="mt-6 grid gap-4 md:grid-cols-2">
+
+    <div className="flex items-center justify-between rounded-2xl bg-gray-50 p-4">
+      <span>Contact Information</span>
+      <span className="text-green-600 font-semibold">✓ Good</span>
+    </div>
+
+    <div className="flex items-center justify-between rounded-2xl bg-gray-50 p-4">
+      <span>Projects Section</span>
+      <span className="text-green-600 font-semibold">✓ Good</span>
+    </div>
+
+    <div className="flex items-center justify-between rounded-2xl bg-gray-50 p-4">
+      <span>Skills Section</span>
+      <span className="text-green-600 font-semibold">✓ Good</span>
+    </div>
+
+    <div className="flex items-center justify-between rounded-2xl bg-gray-50 p-4">
+      <span>Certifications</span>
+      <span className="text-yellow-600 font-semibold">⚠ Missing</span>
+    </div>
+
+    <div className="flex items-center justify-between rounded-2xl bg-gray-50 p-4">
+      <span>Deployment Links</span>
+      <span className="text-yellow-600 font-semibold">⚠ Improve</span>
+    </div>
+
+    <div className="flex items-center justify-between rounded-2xl bg-gray-50 p-4">
+      <span>Open Source Contributions</span>
+      <span className="text-red-600 font-semibold">✗ Not Found</span>
+    </div>
+
+  </div>
+</section>
 
             <section className="mt-6 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
               <h2 className="text-xl font-semibold">Recruiter POV</h2>
@@ -155,6 +291,23 @@ function Dashboard() {
                   Get a personalized improvement plan based on missing skills and target role.
                 </p>
               </Link>
+
+              <Link
+  to="/history"
+  className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+>
+  <TrendingUp size={26} />
+
+  <h2 className="mt-4 text-xl font-semibold">
+    Analysis History
+  </h2>
+
+  <p className="mt-2 text-gray-600">
+    Track resume improvements, ATS growth, and role match progress over time.
+  </p>
+</Link> 
+
+              
             </section>
           </div>
         </main>
