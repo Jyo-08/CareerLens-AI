@@ -31,7 +31,7 @@ function Home() {
 
         <div className="mt-10">
           <Link
-            to="/upload"
+            to="/login"
             className="rounded-2xl bg-black px-8 py-4 text-white text-lg"
           >
             Get Started

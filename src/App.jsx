@@ -5,6 +5,8 @@ import Dashboard from "./pages/Dashboard.jsx";
 import RecruiterAI from "./pages/RecruiterAI.jsx";
 import Roadmap from "./pages/Roadmap.jsx";
 import History from "./pages/History.jsx";
+import Login from "./pages/Login.jsx";
+import Signup from "./pages/Signup.jsx";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route path="/recruiter-ai" element={<RecruiterAI />} />
         <Route path="/roadmap" element={<Roadmap />} />
         <Route path="/history" element={<History />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </BrowserRouter>
   );
