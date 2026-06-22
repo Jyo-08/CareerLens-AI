@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import {
-  ArrowLeft,
-  Target,
-  TrendingUp,
-  AlertCircle,
-  Flame,
-  Clock,
-  Rocket,
-  CheckCircle,
-} from "lucide-react";
+  ArrowLeftIcon,
+  TrophyIcon,
+  ChartBarIcon,
+  ExclamationCircleIcon,
+  FireIcon,
+  ClockIcon,
+  RocketLaunchIcon,
+  CheckCircleIcon,
+} from "@heroicons/react/24/outline";
 
 function Roadmap() {
   const highPriority = [
@@ -62,11 +62,8 @@ function Roadmap() {
   return (
     <div className="min-h-screen bg-[#f7f7f5] text-gray-900">
       <main className="mx-auto max-w-6xl px-8 py-10">
-        <Link
-          to="/dashboard"
-          className="mb-8 inline-flex items-center gap-2 text-sm text-gray-500 hover:text-black"
-        >
-          <ArrowLeft size={16} />
+        <Link to="/dashboard" className="mb-8 inline-flex items-center gap-2 text-sm text-gray-500 hover:text-black">
+          <ArrowLeftIcon className="h-4 w-4" />
           Back to Dashboard
         </Link>
 
@@ -75,9 +72,7 @@ function Roadmap() {
             Personalized Growth Plan
           </p>
 
-          <h1 className="text-4xl font-bold">
-            Career Roadmap for AI/ML Intern
-          </h1>
+          <h1 className="text-4xl font-bold">Career Roadmap for AI/ML Intern</h1>
 
           <p className="mt-4 max-w-2xl text-gray-600">
             Based on your resume analysis, CareerLens AI generated a focused
@@ -106,19 +101,19 @@ function Roadmap() {
 
         <section className="mb-8 grid gap-4 md:grid-cols-3">
           <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
-            <Target className="mb-4" size={24} />
+            <TrophyIcon className="mb-4 h-6 w-6" />
             <p className="text-sm text-gray-500">Current Score</p>
             <h2 className="mt-2 text-3xl font-bold">72%</h2>
           </div>
 
           <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
-            <TrendingUp className="mb-4" size={24} />
+            <ChartBarIcon className="mb-4 h-6 w-6" />
             <p className="text-sm text-gray-500">Target Score</p>
             <h2 className="mt-2 text-3xl font-bold">90%</h2>
           </div>
 
           <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
-            <AlertCircle className="mb-4" size={24} />
+            <ExclamationCircleIcon className="mb-4 h-6 w-6" />
             <p className="text-sm text-gray-500">Skills Missing</p>
             <h2 className="mt-2 text-3xl font-bold">4</h2>
           </div>
@@ -129,13 +124,10 @@ function Roadmap() {
 
           <div className="grid gap-5 md:grid-cols-2">
             {highPriority.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm"
-              >
+              <div key={item.title} className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
                 <div className="mb-4 flex items-center gap-3">
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-black text-white">
-                    <Flame size={22} />
+                    <FireIcon className="h-6 w-6" />
                   </div>
 
                   <div>
@@ -148,13 +140,13 @@ function Roadmap() {
 
                 <div className="mt-5 grid grid-cols-2 gap-3">
                   <div className="rounded-2xl bg-gray-50 p-4">
-                    <Clock size={18} className="mb-2" />
+                    <ClockIcon className="mb-2 h-5 w-5" />
                     <p className="text-xs text-gray-500">Estimated Time</p>
                     <p className="font-semibold">{item.time}</p>
                   </div>
 
                   <div className="rounded-2xl bg-gray-50 p-4">
-                    <TrendingUp size={18} className="mb-2" />
+                    <ChartBarIcon className="mb-2 h-5 w-5" />
                     <p className="text-xs text-gray-500">Expected Impact</p>
                     <p className="font-semibold">{item.impact}</p>
                   </div>
@@ -169,20 +161,13 @@ function Roadmap() {
 
           <div className="grid gap-5 md:grid-cols-2">
             {mediumPriority.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm"
-              >
-                <CheckCircle size={24} className="mb-4" />
+              <div key={item.title} className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
+                <CheckCircleIcon className="mb-4 h-6 w-6" />
                 <h3 className="text-xl font-semibold">{item.title}</h3>
 
                 <div className="mt-4 flex gap-3 text-sm">
-                  <span className="rounded-full bg-gray-100 px-3 py-1">
-                    {item.time}
-                  </span>
-                  <span className="rounded-full bg-gray-100 px-3 py-1">
-                    {item.impact}
-                  </span>
+                  <span className="rounded-full bg-gray-100 px-3 py-1">{item.time}</span>
+                  <span className="rounded-full bg-gray-100 px-3 py-1">{item.impact}</span>
                 </div>
               </div>
             ))}
@@ -191,16 +176,13 @@ function Roadmap() {
 
         <section className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
           <div className="mb-6 flex items-center gap-3">
-            <Rocket size={26} />
+            <RocketLaunchIcon className="h-7 w-7" />
             <h2 className="text-2xl font-bold">Recommended Projects</h2>
           </div>
 
           <div className="grid gap-4 md:grid-cols-3">
             {projects.map((project) => (
-              <div
-                key={project.title}
-                className="rounded-2xl border border-gray-200 bg-[#fafafa] p-5"
-              >
+              <div key={project.title} className="rounded-2xl border border-gray-200 bg-[#fafafa] p-5">
                 <h3 className="font-semibold">{project.title}</h3>
                 <p className="mt-2 text-sm text-gray-500">{project.focus}</p>
 

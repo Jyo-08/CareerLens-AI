@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { UploadCloud, FileText, Sparkles } from "lucide-react";
+import MobileNav from "../components/MobileNav.jsx";
 
 function Upload() {
   const navigate = useNavigate();

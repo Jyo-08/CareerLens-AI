@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import {
-  ArrowLeft,
-  FileText,
-  TrendingUp,
-  Calendar,
-  CheckCircle,
-} from "lucide-react";
+  ArrowLeftIcon,
+  DocumentTextIcon,
+  ChartBarIcon,
+  CalendarDaysIcon,
+  CheckCircleIcon,
+} from "@heroicons/react/24/outline";
 
 function History() {
   const history = [
@@ -38,11 +38,8 @@ function History() {
   return (
     <div className="min-h-screen bg-[#f7f7f5] text-gray-900">
       <main className="mx-auto max-w-6xl px-8 py-10">
-        <Link
-          to="/dashboard"
-          className="mb-8 inline-flex items-center gap-2 text-sm text-gray-500 hover:text-black"
-        >
-          <ArrowLeft size={16} />
+        <Link to="/dashboard" className="mb-8 inline-flex items-center gap-2 text-sm text-gray-500 hover:text-black">
+          <ArrowLeftIcon className="h-4 w-4" />
           Back to Dashboard
         </Link>
 
@@ -51,31 +48,28 @@ function History() {
             Resume Evolution Tracker
           </p>
 
-          <h1 className="text-4xl font-bold">Analysis History</h1>
+          <h1 className="text-4xl font-bold">Career Progress History</h1>
 
           <p className="mt-4 max-w-2xl text-gray-600">
-            Track how your resume improves over time across ATS score,
-            role match, recruiter readability, and career readiness.
+            Track your career growth journey through ATS improvements,
+            role match progression, skill development, and recruiter readiness.
           </p>
         </section>
 
         <section className="grid gap-5">
           {history.map((item) => (
-            <div
-              key={item.version}
-              className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm"
-            >
+            <div key={item.version} className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
               <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
                 <div>
                   <div className="mb-3 flex items-center gap-3">
                     <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gray-100">
-                      <FileText size={22} />
+                      <DocumentTextIcon className="h-6 w-6" />
                     </div>
 
                     <div>
                       <h2 className="text-xl font-semibold">{item.version}</h2>
                       <p className="flex items-center gap-2 text-sm text-gray-500">
-                        <Calendar size={14} />
+                        <CalendarDaysIcon className="h-4 w-4" />
                         {item.date}
                       </p>
                     </div>
@@ -107,25 +101,25 @@ function History() {
 
         <section className="mt-8 rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
           <div className="mb-4 flex items-center gap-3">
-            <TrendingUp size={26} />
+            <ChartBarIcon className="h-7 w-7" />
             <h2 className="text-2xl font-bold">Progress Summary</h2>
           </div>
 
           <div className="grid gap-4 md:grid-cols-3">
             <div className="rounded-2xl bg-gray-50 p-5">
-              <CheckCircle className="mb-3" size={22} />
+              <CheckCircleIcon className="mb-3 h-6 w-6" />
               <p className="text-sm text-gray-500">ATS Improvement</p>
               <h3 className="mt-1 text-2xl font-bold">+14</h3>
             </div>
 
             <div className="rounded-2xl bg-gray-50 p-5">
-              <CheckCircle className="mb-3" size={22} />
+              <CheckCircleIcon className="mb-3 h-6 w-6" />
               <p className="text-sm text-gray-500">Role Match Growth</p>
               <h3 className="mt-1 text-2xl font-bold">+22%</h3>
             </div>
 
             <div className="rounded-2xl bg-gray-50 p-5">
-              <CheckCircle className="mb-3" size={22} />
+              <CheckCircleIcon className="mb-3 h-6 w-6" />
               <p className="text-sm text-gray-500">Latest Status</p>
               <h3 className="mt-1 text-2xl font-bold">Strong</h3>
             </div>
