@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { UploadCloud, FileText, Sparkles } from "lucide-react";
-import MobileNav from "../components/MobileNav.jsx";
+import {
+  CloudArrowUpIcon,
+  DocumentTextIcon,
+  SparklesIcon,
+} from "@heroicons/react/24/outline";
 
 function Upload() {
   const navigate = useNavigate();
@@ -37,7 +40,7 @@ function Upload() {
       <main className="mx-auto max-w-4xl px-8 py-12">
         <div className="mb-10">
           <p className="mb-3 flex items-center gap-2 text-sm font-medium text-gray-500">
-            <Sparkles size={16} />
+            <SparklesIcon className="h-4 w-4" />
             Step 1 of Career Analysis
           </p>
 
@@ -54,11 +57,9 @@ function Upload() {
         <section className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
           <label className="block">
             <div className="flex cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed border-gray-300 bg-[#fafafa] px-6 py-14 text-center transition hover:border-black">
-              <UploadCloud size={44} className="mb-4 text-gray-500" />
+              <CloudArrowUpIcon className="mb-4 h-12 w-12 text-gray-500" />
 
-              <h2 className="text-xl font-semibold">
-                Drop your resume here
-              </h2>
+              <h2 className="text-xl font-semibold">Drop your resume here</h2>
 
               <p className="mt-2 text-gray-500">
                 Upload a PDF file to begin analysis
@@ -79,7 +80,7 @@ function Upload() {
 
           {fileName && (
             <div className="mt-5 flex items-center gap-3 rounded-2xl bg-gray-50 p-4">
-              <FileText className="text-gray-600" />
+              <DocumentTextIcon className="h-6 w-6 text-gray-600" />
               <div>
                 <p className="font-medium">{fileName}</p>
                 <p className="text-sm text-gray-500">Ready for analysis</p>
