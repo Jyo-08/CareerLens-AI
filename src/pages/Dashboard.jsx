@@ -11,6 +11,26 @@ import {
 } from "@heroicons/react/24/outline";
 
 function Dashboard() {
+  const analysis =
+    JSON.parse(localStorage.getItem("careerLensAnalysis")) || {};
+
+  const skillsFound =
+    analysis.skills_found || ["Python", "React", "FastAPI", "Machine Learning", "GitHub"];
+
+  const missingSkills =
+    analysis.missing_skills || ["Docker", "TensorFlow", "MLOps", "Deployment"];
+
+  const recruiterPov =
+    analysis.recruiter_pov ||
+    "Your resume shows strong technical potential with good project exposure. However, it needs stronger deployment proof, measurable impact, and more role-specific AI/ML tools.";
+
+  const statCards = [
+    ["ATS Score", `${analysis.ats_score || 82}/100`, TrophyIcon],
+    ["Role Match", `${analysis.role_match || 76}%`, BriefcaseIcon],
+    ["Domain", analysis.target_role || "AI/ML", SparklesIcon],
+    ["Strength", analysis.resume_strength || "Strong", ChartBarIcon],
+  ];
+
   return (
     <div className="min-h-screen bg-[#f7f7f5] text-gray-900">
       <div className="flex">
@@ -37,7 +57,9 @@ function Dashboard() {
 
         <main className="flex-1 p-6 md:p-10">
           <div className="mx-auto max-w-6xl">
-            <p className="text-sm font-medium text-gray-500">Resume Intelligence Report</p>
+            <p className="text-sm font-medium text-gray-500">
+              Resume Intelligence Report
+            </p>
 
             <h1 className="mt-2 text-4xl font-bold">
               Your CareerLens analysis is ready.
@@ -49,13 +71,11 @@ function Dashboard() {
             </p>
 
             <section className="mt-8 grid gap-4 md:grid-cols-4">
-              {[
-                ["ATS Score", "82/100", TrophyIcon],
-                ["Role Match", "76%", BriefcaseIcon],
-                ["Domain", "AI/ML", SparklesIcon],
-                ["Strength", "Strong", ChartBarIcon],
-              ].map(([title, value, Icon]) => (
-                <div key={title} className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
+              {statCards.map(([title, value, Icon]) => (
+                <div
+                  key={title}
+                  className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm"
+                >
                   <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-gray-100">
                     <Icon className="h-6 w-6" />
                   </div>
@@ -106,8 +126,11 @@ function Dashboard() {
                 </div>
 
                 <div className="flex flex-wrap gap-2">
-                  {["Python", "React", "FastAPI", "Machine Learning", "GitHub"].map((skill) => (
-                    <span key={skill} className="rounded-full bg-gray-100 px-4 py-2 text-sm text-gray-700">
+                  {skillsFound.map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-full bg-gray-100 px-4 py-2 text-sm text-gray-700"
+                    >
                       {skill}
                     </span>
                   ))}
@@ -121,8 +144,11 @@ function Dashboard() {
                 </div>
 
                 <div className="flex flex-wrap gap-2">
-                  {["Docker", "TensorFlow", "MLOps", "Deployment"].map((skill) => (
-                    <span key={skill} className="rounded-full bg-red-50 px-4 py-2 text-sm text-red-700">
+                  {missingSkills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-full bg-red-50 px-4 py-2 text-sm text-red-700"
+                    >
                       {skill}
                     </span>
                   ))}
@@ -206,15 +232,15 @@ function Dashboard() {
               <h2 className="text-xl font-semibold">Recruiter POV</h2>
 
               <p className="mt-4 leading-relaxed text-gray-600">
-                Your resume shows strong technical potential with good project exposure.
-                However, it needs stronger deployment proof, measurable impact, and more
-                role-specific AI/ML tools. Adding quantified project outcomes and
-                production-ready project links can significantly improve your shortlist chances.
+                {recruiterPov}
               </p>
             </section>
 
             <section className="mt-6 grid gap-6 md:grid-cols-3">
-              <Link to="/recruiter-ai" className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+              <Link
+                to="/recruiter-ai"
+                className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+              >
                 <ChatBubbleLeftRightIcon className="h-7 w-7" />
                 <h2 className="mt-4 text-xl font-semibold">Talk to Recruiter AI</h2>
                 <p className="mt-2 text-gray-600">
@@ -222,7 +248,10 @@ function Dashboard() {
                 </p>
               </Link>
 
-              <Link to="/roadmap" className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+              <Link
+                to="/roadmap"
+                className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+              >
                 <MapIcon className="h-7 w-7" />
                 <h2 className="mt-4 text-xl font-semibold">View Career Roadmap</h2>
                 <p className="mt-2 text-gray-600">
@@ -230,7 +259,10 @@ function Dashboard() {
                 </p>
               </Link>
 
-              <Link to="/history" className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+              <Link
+                to="/history"
+                className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+              >
                 <ChartBarIcon className="h-7 w-7" />
                 <h2 className="mt-4 text-xl font-semibold">Career Progress</h2>
                 <p className="mt-2 text-gray-600">

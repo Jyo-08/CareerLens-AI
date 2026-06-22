@@ -11,19 +11,51 @@ function Upload() {
   const [fileName, setFileName] = useState("");
   const [role, setRole] = useState("AI/ML Intern");
   const [loading, setLoading] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null);
 
   const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    if (file) setFileName(file.name);
-  };
+  const file = event.target.files[0];
 
-  const handleAnalyze = () => {
-    setLoading(true);
+  if (file) {
+    setFileName(file.name);
+    setSelectedFile(file);
+  }
+};
 
-    setTimeout(() => {
-      navigate("/dashboard");
-    }, 1800);
-  };
+ const handleAnalyze = async () => {
+  if (!selectedFile) {
+    alert("Please upload a resume first");
+    return;
+  }
+
+  setLoading(true);
+
+  const formData = new FormData();
+  formData.append("file", selectedFile);
+  formData.append("role", role);
+
+  try {
+    const response = await fetch("http://127.0.0.1:8000/analyze-resume", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (!response.ok) {
+      throw new Error("ATS analysis failed");
+    }
+
+    const data = await response.json();
+
+    localStorage.setItem("careerLensAnalysis", JSON.stringify(data));
+
+    navigate("/dashboard");
+  } catch (error) {
+    console.error(error);
+    alert("Unable to analyze resume. Make sure ATS backend is running.");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="min-h-screen bg-[#f7f7f5] text-gray-900">
